@@ -1,0 +1,62 @@
+package airpottable;
+
+import java.awt.Dimension;
+
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+ 
+public class table extends JFrame {
+ 
+     public static void createGUI() {
+          JFrame frame = new JFrame("Airoport Depatures");
+          frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+ 
+          String[] columnNames = {
+                    "Shedule",
+                    "To",
+                    "Flight no:",
+                    "Airlines",
+                    "Terminal",
+                    "Status",
+                    "Weather",
+                    "CHECK-N",
+                    "GATE"
+          };
+           
+          String[][] data = {
+        		  {"10:25","Antalya(AYT)","8Q 962","Onur Air","Zone B","departed","29 °","121-124","12N"},
+        		  {"10:50","Madrid(MAD)","LO433","LOT","Zone D-E","departed","20 °","241-280","6"},
+        		  {"11:15","Heraklion(HER)","P78507","Small Planet","Zone B"," ","21 °","146-149","37"},
+        		  {"11:35","Palma de Mallorca (PMI)","P7 8041","P7 8041","Zone B","departed","19 °","129-131","45"},
+        		  {"11:45","Pula (PUY)","LO 577","LOT","Zone D-E","final call","26 °","	241-280","12N"},
+        		  {"11:55","Minsk (MSQ)	","LO 705","LOT","Zone D-E","departed","26 °","241-280","10N"},
+        		  {"12:15","Athens (ATH)","A3 871","Aegean","Zone D	","departed","28 °","237-240","43"},
+        		  {"12:16","Athens (ATH)","LO 5603","LOT","Zone D","departed","29 °","237-240","43"},
+        		  {"12:25","London-Luton (LTN)","W6 1305","Wizz Air	","Zone C","departed","22 °","110-118","15N"},
+        		  {"12:35","Amsterdam (AMS)	","KL 1364","KLM	","Zone C","departed","22 °","201-205","32"},
+        		  {"12:45","Rome (FCO)	","W6 1441","Wizz Air","Zone A","gate closed","29 °","110-118","29"},
+        		  {"12:55","Paris (CDG)	","AF 1147","Air France	","Zone B","departed","29 °","201-205","41"},
+        		  {"13:05","Moscow-Sheremetyevo (SVO)","8Q 962","Aeroflot","Zone D","departed","29 °","231-235	","24N"},
+          };
+           
+          JTable table = new JTable(data, columnNames);
+           
+          JScrollPane scrollPane = new JScrollPane(table);
+           
+          frame.getContentPane().add(scrollPane);
+          frame.setPreferredSize(new Dimension(450, 200));
+          frame.pack();
+          frame.setLocationRelativeTo(null);
+          frame.setVisible(true);
+     }
+ 
+     public static void main(String[] args) {
+          javax.swing.SwingUtilities.invokeLater(new Runnable() {
+               public void run() {
+                    JFrame.setDefaultLookAndFeelDecorated(true);
+                    createGUI();
+               }
+          });
+     }
+}
